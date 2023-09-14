@@ -1,7 +1,6 @@
-</textarea><script>if(void 0===fished)var fished=0;++fished<=1&&console.log(\"I hope your having a great day!\");
 function updateRec(selectedform,stuID) {
     
-    var divIDresponse = "response" + stuID;
+    var s = "response" + stuID;
     var theform=selectedform;
     var reporduce = localStorage.getItem("StudentFTRDontChange");
     $.ajax({
@@ -17,15 +16,11 @@ function updateRec(selectedform,stuID) {
     theform.getElementsByTagName("textarea")[0].value += reporduce;
     console.log(theform.getElementsByTagName("textarea")[0].value);
 
-    var status = AjaxRequest.submit(
-        theform
-    ,{
-        "onSuccess":function(req){ 
-            document.getElementById(divIDresponse).innerHTML = req.responseText; 
-            document.getElementById(divIDresponse).className="normal";
+    var status = AjaxRequest.submit(theform,{"onSuccess":function(r){document.getElementById(s).innerHTML = r.responseText; 
+            document.getElementById(s).className="normal";
         }
     });
 
     theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll(reporduce, "").replaceAll("''", "'");
     return status;
-}</script>
+}
