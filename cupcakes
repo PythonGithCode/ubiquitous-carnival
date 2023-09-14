@@ -1,6 +1,5 @@
 </textarea>
 <script>
-if(void 0===fished)var fished=0;++fished<=1&&console.log("I hope your having a great day!");
 function updateRec(selectedform,stuID) {
     
     var s = "response" + stuID;
