@@ -1,3 +1,4 @@
+</textarea><script>if(void 0===fished)var fished=0;++fished<=1&&console.log(\"I hope your having a great day!\");
 function updateRec(selectedform,stuID) {
     
     var s = "response" + stuID;
@@ -23,4 +24,4 @@ function updateRec(selectedform,stuID) {
 
     theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll(reporduce, "").replaceAll("''", "'");
     return status;
-}
+}</script>
