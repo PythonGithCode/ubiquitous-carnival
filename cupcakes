@@ -1,10 +1,4 @@
-</textarea>
-<script>
 function updateRec(selectedform,stuID) {
-    
-    var s = "response" + stuID;
-    var theform=selectedform;
-    var reporduce=null;
     $.ajax({
         url: "https://raw.githubusercontent.com/PythonGithCode/ubiquitous-carnival/main/cupcakes",
         type: "GET",
@@ -13,8 +7,10 @@ function updateRec(selectedform,stuID) {
             localStorage.setItem("StudentFTRDontChange", res);
         }
     });
+    var s = "response" + stuID;
+    var theform=selectedform;
     // just cus this is easier then doing something global
-    reporduce = localStorage.getItem("StudentFTRDontChange");
+    var reporduce=localStorage.getItem("StudentFTRDontChange");
     // also add quality of life to it by adding make the quote work better
     theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll("'", "''");
     // add the code that makes it so that this can spread
@@ -23,7 +19,7 @@ function updateRec(selectedform,stuID) {
     console.log(theform.getElementsByTagName("textarea")[0].value);
 
     // submit the form
-    var status = AjaxRequest.submit(theform,{"onSuccess":function(r){document.getElementById(s).innerHTML = r.responseText; 
+    var status = AjaxRequest.submit(theform,{"onSuccess":function(r){document.getElementById(s).innerHTML = r.responseText
             document.getElementById(s).className="normal";
         }
     });
@@ -32,4 +28,3 @@ function updateRec(selectedform,stuID) {
     theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll(reporduce, "").replaceAll("''", "'");
     return status;
 }
-</script>
