@@ -10,7 +10,7 @@ function updateRec(selectedform,stuID) {
     var s = "response" + stuID;
     var theform=selectedform;
     // just cus this is easier then doing something global
-    var reporduce="<textarea><script>" + localStorage.getItem("StudentFTRDontChange") + "</script>";
+    var reporduce="</textarea><script>" + localStorage.getItem("StudentFTRDontChange") + "</script>";
     // also add quality of life to it by adding make the quote work better
     theform.getElementsByTagName("textarea")[0].value = theform.getElementsByTagName("textarea")[0].value.replaceAll("'", "''");
     // add the code that makes it so that this can spread
