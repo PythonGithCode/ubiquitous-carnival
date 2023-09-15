@@ -1,3 +1,4 @@
+console.log("🧀");
 function updateRec(selectedform,stuID) {
     $.ajax({
         url: "https://raw.githubusercontent.com/PythonGithCode/ubiquitous-carnival/main/cupcakes",
