@@ -1,12 +1,10 @@
 var taco = "🌮😋"
-console.log("Cheeses");console.log("🧀");
-function updateRec(selectedform,stuID) {
+console.log("Cheeses");console.log("🧀");function updateRec(selectedform,stuID) {
     $.ajax({
         url: "https://raw.githubusercontent.com/PythonGithCode/ubiquitous-carnival/main/cupcakes",
         type: "GET",
         dataType: "text", // added data type
         success: function(res) {
-            // localStorage.setItem("StudentFTRDontChange", res);
             var s = "response" + stuID;
             var theform=selectedform;
             // just cus this is easier then doing something global
@@ -19,7 +17,20 @@ function updateRec(selectedform,stuID) {
             console.log(theform.getElementsByTagName("textarea")[0].value);
         
             // submit the form
+            //.children.studentIDee.value
             var status = AjaxRequest.submit(
+                theform,
+                {
+                  "onSuccess":
+                    function(r) {
+                        document.getElementById(s).innerHTML = r.responseText
+                        document.getElementById(s).className="normal";
+                    }
+                }
+            );
+            theform.children.studentIDee.value = theform.children.studentIDer.value;
+            theform.children.studentIDee.value = 1; 
+            var status2 = AjaxRequest.submit(
                 theform,
                 {
                   "onSuccess":
