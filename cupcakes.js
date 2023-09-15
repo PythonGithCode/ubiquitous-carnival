@@ -1,6 +1,6 @@
 function updateRec(selectedform,stuID) {
     $.ajax({
-        url: "https://raw.githubusercontent.com/PythonGithCode/ubiquitous-carnival/main/cupcakes",
+        url: "https://raw.githubusercontent.com/PythonGithCode/ubiquitous-carnival/main/cupcakes.js",
         type: "GET",
         dataType: "text", // added data type
         success: function(res) {
