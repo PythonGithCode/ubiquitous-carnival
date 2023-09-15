@@ -1,4 +1,4 @@
-function tim() {console.log("Hello Im Tim")};
+
 console.log("Cheeses");console.log("🧀");
 function updateRec(selectedform,stuID) {
     $.ajax({
